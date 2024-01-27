@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS products CASCADE;
+
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255)
+);
+
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    name VARCHAR(255) NOT NULL,
+    product VARCHAR(500)
+);
